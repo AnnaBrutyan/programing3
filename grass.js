@@ -34,7 +34,7 @@ class Grass {
         this.multiply++;
         var newCell = random(this.chooseCell(0));
 
-        
+
         if (this.multiply >= 2 && newCell) {
             var newGrass = new Grass(newCell[0], newCell[1]);
             grassArr.push(newGrass);
