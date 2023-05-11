@@ -1,0 +1,22 @@
+{
+  "name": "programing3",
+  "version": "1.0.0",
+  "description": "Programing",
+  "main": "LivingCreature.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AnnaBrutyan/programing3.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AnnaBrutyan/programing3/issues"
+  },
+  "homepage": "https://github.com/AnnaBrutyan/programing3#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
