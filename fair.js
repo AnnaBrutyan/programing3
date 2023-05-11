@@ -1,16 +1,16 @@
-class fair extends Grass{
+class fair extends LivingCreature{
     constructor(x, y, index) {
        super(x,y,index)
-        this.multiply = 0
         this.energy = 10;
         this.directions = [];
     }
 
 
 
-    chooseCell(character) {
+    chooseCell(ch) {
         this.getNewCoordinates();
-        return super.chooseCell(character);
+   return super.chooseCell(ch);
+
     }
 
 
