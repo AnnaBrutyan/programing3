@@ -1,7 +1,10 @@
-class GrassEater extends LivingCreature  {
-    
+const LivingCreature = require("./LivingCreature");
+let random = require("./random");
+
+module.exports = class GrassEater extends LivingCreature {
+
     constructor(x, y, index) {
-       super(x,y,index)
+        super(x, y, index)
         this.energy = 10;
         this.directions = [];
     }
@@ -9,7 +12,7 @@ class GrassEater extends LivingCreature  {
 
     chooseCell(ch) {
         this.getNewCoordinates();
-   return super.chooseCell(ch);
+        return super.chooseCell(ch);
 
     }
 
@@ -32,7 +35,7 @@ class GrassEater extends LivingCreature  {
 
 
     move() {
-        this.energy-= 5;
+        this.energy -= 5;
         var newCell = random(this.chooseCell(0));
 
         if (newCell) {
@@ -43,7 +46,7 @@ class GrassEater extends LivingCreature  {
             matrix[newY][newX] = 2
             this.y = newY;
             this.x = newX;
-           
+
         }
     }
 
@@ -58,7 +61,7 @@ class GrassEater extends LivingCreature  {
 
             matrix[this.y][this.x] = 0;
             matrix[newY][newX] = 2
-            
+
             for (var i in grassArr) {
                 if (newX == grassArr[i].x && newY == grassArr[i].y) {
                     grassArr.splice(i, 1);
@@ -70,29 +73,29 @@ class GrassEater extends LivingCreature  {
             this.y = newY;
             this.x = newX;
             this.energy += 5;
-        } 
+        }
     }
 
 
     mul() {
         this.multiply++;
         var newCell = random(this.chooseCell(1));
-        
-  
+
+
         if (newCell && this.multiply >= 15) {
-          var newGrassEater = new GrassEater(newCell[0], newCell[1],);
-          grassEaterArr.push(newGrassEater);
-          matrix[newCell[1]][newCell[0]] = 2;
-          this.multiply = 0;
+            var newGrassEater = new GrassEater(newCell[0], newCell[1],);
+            grassEaterArr.push(newGrassEater);
+            matrix[newCell[1]][newCell[0]] = 2;
+            this.multiply = 0;
         }
-      }
-    
+    }
+
 
 
 
 
     die() {
-        
+
         if (this.energy <= 5) {
             matrix[this.y][this.x] = 0;
 
@@ -100,7 +103,7 @@ class GrassEater extends LivingCreature  {
             for (var i in grassEaterArr) {
                 if (this.x == grassEaterArr[i].x && this.y == grassEaterArr[i].y) {
                     grassEaterArr.splice(i, 1);
-                    break; 
+                    break;
                 }
             }
 
