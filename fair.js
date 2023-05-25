@@ -53,7 +53,7 @@ module.exports = class fair extends LivingCreature{
 
 
     eat() {
-        var newCell = random(this.chooseCell(2));
+        var newCell = random(this.chooseCell(4));
         if (newCell) {
             var newX = newCell[0];
             var newY = newCell[1];
@@ -72,7 +72,7 @@ module.exports = class fair extends LivingCreature{
 
             this.y = newY;
             this.x = newX;
-            this.energy += 5;
+            this.energy += 7;
       
         }
     }

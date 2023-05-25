@@ -11,7 +11,7 @@ function setup() {
 }
 
   
-}
+
 
 function drawmatrix(data) {
   matrix = data.matrix;
@@ -33,7 +33,10 @@ function drawmatrix(data) {
         fill("blue");
         rect(x * side, y * side, side, side);
       }
-
+      else if (matrix[y][x] == 4) {
+        fill("#CC0066");
+        rect(x * side, y * side, side, side);
+      }
     }
   }
 }

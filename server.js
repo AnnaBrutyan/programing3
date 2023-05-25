@@ -1,33 +1,34 @@
-var express = require("express");
-const GrassEater = require("./grasseater");
+var express = require('express');
 var app = express();
+var server = require('http').createServer(app);
+var io = require('socket.io')(server);
 
-app.use(express.static("../programing3"));
 
-app.get("/", function (req, res) {
-   res.redirect("index.html");
+app.use(express.static("."));
+
+app.get('/', function (req, res) {
+   res.redirect('index.html');
 });
 
-server.listen(3000, function () {
-   console.log("Example is running on port 3000");
-});
-
+server.listen(3000);
 grassArr = [];
 grassEaterArr = [];
 fairArr = [];
+flowerArr = [];
 matrix = [];
 
 
-Grass = require("./modules/grass");
-GrassEater = require("./modules/grassEater");
-fair = require("./modules/fair");
+Grass = require("./grass");
+GrassEater = require("./grassEater");
+fair = require("./fair");
+flower = require("./flower")
 let random = require("./random");
 
 function genMatrix() {
    for (var y = 0; y < 90; y++) {
       matrix[y] = [];
       for (var x = 0; x < 90; x++) {
-         let arr = [0, 1, 2, 3];
+         let arr = [0, 1, 2, 3, 4];
          let r = random(arr)
          matrix[y][x] = r;
       }
@@ -50,7 +51,10 @@ for (var y = 0; y < matrix.length; ++y) {
        var fair1 = new fair(x, y, 3);
        fairArr.push(fair1);
      }
-     
+     else if (matrix[y][x] == 4) {
+      var flower1 = new flower(x, y, 4);
+      flowerArr.push(flower1);
+    }
 }
 }
 
@@ -75,9 +79,14 @@ function drawserverayin() {
       fairArr[i].die();
       
     }
+
+    for (var i in flowerArr) {
+      flowerArr[i].mul();
+    }
   
   let sendData = {
      matrix: matrix
   }  
 io.sockets.emit("matrix", sendData)
 }
+setInterval(drawserverayin,1000)
