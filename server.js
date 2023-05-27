@@ -3,6 +3,7 @@ var app = express();
 var server = require('http').createServer(app);
 var io = require('socket.io')(server);
 
+var messages = [];
 
 app.use(express.static("."));
 
@@ -15,20 +16,37 @@ grassArr = [];
 grassEaterArr = [];
 fairArr = [];
 flowerArr = [];
+WaterArr = [];
+animalArr = [];
 matrix = [];
+ days = 0;
+ weather = "winter";
+
+  statistics = {
+  "grassSpawn": 0,
+  "grassEaterSpawn": 0,
+  "animalSpawn": 0,
+  "fireSpawn": 0,
+  "flowerSpawn": 0,
+  "waterSpawn": 0,
+  "weather": "",
+
+}
 
 
 Grass = require("./grass");
 GrassEater = require("./grassEater");
 fair = require("./fair");
-flower = require("./flower")
+flower = require("./flower");
+Water = require("./Water");
+Animal = require("./Animal");
 let random = require("./random");
 
 function genMatrix() {
    for (var y = 0; y < 90; y++) {
       matrix[y] = [];
       for (var x = 0; x < 90; x++) {
-         let arr = [0, 1, 2, 3, 4];
+         let arr = [0, 1, 2, 3, 4, 5, 6];
          let r = random(arr)
          matrix[y][x] = r;
       }
@@ -55,6 +73,15 @@ for (var y = 0; y < matrix.length; ++y) {
       var flower1 = new flower(x, y, 4);
       flowerArr.push(flower1);
     }
+    else if (matrix[y][x] == 5) {
+      var Water1 = new Water(x, y, 5);
+      WaterArr.push(Water1);
+    }
+    else if (matrix[y][x] == 6) {
+      var animal1 = new Animal(x, y, 6);
+      animalArr.push(animal1);
+    }
+
 }
 }
 
@@ -82,6 +109,20 @@ function drawserverayin() {
 
     for (var i in flowerArr) {
       flowerArr[i].mul();
+    }
+    for (var i in WaterArr) {
+      WaterArr[i].extinguish();
+      WaterArr[i].move();
+      WaterArr[i].mul();
+      WaterArr[i].die();
+      
+    }
+    for (var i in animalArr) {
+      animalArr[i].eat();
+      animalArr[i].move();
+      animalArr[i].mul();
+      animalArr[i].die();
+      
     }
   
   let sendData = {

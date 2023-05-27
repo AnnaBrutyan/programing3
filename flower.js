@@ -27,7 +27,7 @@ module.exports = class flower extends LivingCreature {
         var newCell = random(this.chooseCell(0));
 
 
-        if (this.multiply >= 4 && newCell) {
+        if (this.multiply >= 10 && newCell) {
             var newflower = new flower(newCell[0], newCell[1]);
             flowerArr.push(newflower);
             matrix[newCell[1]][newCell[0]] = 4;
