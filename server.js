@@ -19,19 +19,8 @@ flowerArr = [];
 WaterArr = [];
 animalArr = [];
 matrix = [];
- days = 0;
- weather = "winter";
-
-  statistics = {
-  "grassSpawn": 0,
-  "grassEaterSpawn": 0,
-  "animalSpawn": 0,
-  "fireSpawn": 0,
-  "flowerSpawn": 0,
-  "waterSpawn": 0,
-  "weather": "",
-
-}
+ 
+ 
 
 
 Grass = require("./grass");

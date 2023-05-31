@@ -4,7 +4,8 @@
   "description": "Programing",
   "main": "LivingCreature.js",
   "scripts": {
-    "test": "test"
+    "test": "test",
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
@@ -18,5 +19,7 @@
   "homepage": "https://github.com/AnnaBrutyan/programing3#readme",
   "dependencies": {
     "express": "^4.18.2"
-  }
+  },
+  "devDependencies": {},
+  "keywords": []
 }
