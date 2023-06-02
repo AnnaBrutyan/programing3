@@ -1,25 +1,24 @@
 {
   "name": "programing3",
   "version": "1.0.0",
-  "description": "Programing",
-  "main": "LivingCreature.js",
+  "description": "This is an canvas game created with javascript and it has 6 characters **grasses**, **grasseaters**, **predators**, **predatoreaters**, **bombs** and **the persongenerator**. We can **add them**, **delete them**, **change weather** and get **statistics about our characters**. It has 4 types of weather **winter**, **spring**, **summer**, **autumn**.",
+  "main": "index.js",
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "devDependencies": {},
   "scripts": {
-    "test": "test",
-    "start": "node server.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/AnnaBrutyan/programing3.git"
   },
+  "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/AnnaBrutyan/programing3/issues"
   },
-  "homepage": "https://github.com/AnnaBrutyan/programing3#readme",
-  "dependencies": {
-    "express": "^4.18.2"
-  },
-  "devDependencies": {},
-  "keywords": []
+  "homepage": "https://github.com/AnnaBrutyan/programing3#readme"
 }
